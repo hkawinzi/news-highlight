@@ -51,5 +51,24 @@ def process_results(view_list):
             view_object = View(author,title,description,url,urlToImage,publishedAt,content)
             view_results.append(view_object)
 
+def get_view(id):
+    get_view_details_url = base_url.format(id,api_key)
 
-    return views_results
+    with urllib.request.urlopen(get_view_details_url) as url:
+        view_details_data = url.read()
+        view_details_response = json.loads(view_details_data)
+
+        view_object = None
+        if view_details_response:
+        author = view_item.get('author')
+        title = view_item.get('original_title')
+        description = view_item.get('description')
+        url = view_item.get('url_path')
+        urlToImage = view_item.get('urlToImage')
+        publishedAt = view_item.get('publishedAt')
+        content = view_item.get('content')
+
+            view_object = View(author,title,description,url,urlToImage,publishedAt,content)
+
+    return movie_object
+
