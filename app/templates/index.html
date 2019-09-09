@@ -13,6 +13,7 @@
         {% endif %}
     </head>
     <body>
+            {% block content %}
             <!-- Popular news -->
             <h3> Popular News</h3>
             <ul>
@@ -29,5 +30,6 @@
             <ul>
                 {{ macro.displayViewList(now_showing)}}
            </ul>
+           {% endblock%}
     </body>
 </html>
