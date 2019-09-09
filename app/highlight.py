@@ -1,7 +1,7 @@
 from flask import render_template
 from app import app
 from .request import get_views
-from .request import get_views,get_view
+from .request import get_views,get_view,search_view
 
 @app.route('/')
 def index():
@@ -27,3 +27,13 @@ def views(view_id):
     title = f'{views.title}'
 
     return render_template('news.html',title = title,views = views)
+@app.route('/search/<movie_name>')
+def search(view_name):
+    '''
+    View function to display the search results
+    '''
+    view_name_list = view_name.split(" ")
+    view_name_format = "+".join(view_name_list)
+    searched_views = search_view(view_name_format)
+    title = f'search results for {view_name}'
+    return render_template('search.html',views = searched_movies)

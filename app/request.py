@@ -68,7 +68,24 @@ def get_view(id):
         publishedAt = view_item.get('publishedAt')
         content = view_item.get('content')
 
-            view_object = View(author,title,description,url,urlToImage,publishedAt,content)
+        view_object = View(author,title,description,url,urlToImage,publishedAt,content)
 
     return movie_object
 
+
+def search_view(view_name):
+    search_view_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,view_name)
+    with urllib.request.urlopen(search_movie_url) as url:
+        search_view_data = url.read()
+        search_view_response = json.loads(search_view_data)
+
+        search_view_results = None
+
+        if search_view_response['results']:
+            search_view_list = search_view_response['results']
+            search_view_results = process_results(search_view_list)
+
+
+    return search_movie_results
+
+    
