@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from app import app
 from .request import get_views
 from .request import get_views,get_view,search_view
@@ -15,6 +15,11 @@ def index():
     upcoming_view = get_views('upcoming')
     now_showing_view = get_views('now_playing')
     title = 'Home - Welcome to The best News Review Website Online'
+    search_view = request.args.get('news_query')
+
+    if search_view:
+        return redirect(url_for('search',view_name=search_view))
+    else:
     return render_template('index.html', title = title, popular = popular_views, upcoming = upcoming_view, now_showing = now_showing_view )
 #highlight
 @app.route('/news/<int:view_id>')
