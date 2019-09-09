@@ -1,5 +1,5 @@
 # News Highlight
-An application that lists news articles from various sources and helps the busy people to keep up with the current affairs , 01/02/2019.
+An application that lists news articles from various sources and helps the busy people to keep up with the current affairs , 09/09/2019.
 
 ## Description
 This application is developed to help a user to go through everyday's highlights. User can follow the link to the source in case he wants to read the full article about any news. User can see the image, description and the time a news article was created. User can select a news source from various news sources and can read all the news articles from that particular source.
