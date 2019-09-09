@@ -69,7 +69,7 @@ def view(id):
     View view page function that returns the view details page and its data
     '''
     view = get_view(id)
-    title = f'{movie.title}'
+    title = f'{view.title}'
     reviews = Review.get_reviews(view.id)
 
     return render_template('news.html',title = title,view = view,reviews = reviews)
