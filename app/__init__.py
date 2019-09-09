@@ -2,6 +2,8 @@ import os
 from flask import Flask
 from .config import DevConfig
 import bootstrap
+from app import highlight
+from app import error
 
 #initializing application
 app = Flask(__name__,instance_relative_config= True)
