@@ -1,7 +1,7 @@
 {% macro displayViewList(view_list) %}
 
-    {% for movie in movie_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+    {% for view in view_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 view-card">
             <img src="{{ view.poster }}" alt="{{ view.title }} poster" class="img-responsive">
             <li class="text-center">
                 <a href="/view/{{view.id}}">

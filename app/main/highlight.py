@@ -13,7 +13,7 @@ def index():
     Highlight root page function that returns the index page and its data
     '''
 
-    # Getting popular movie
+    # Getting popular view
     popular_views = get_views('popular')
     upcoming_view = get_views('upcoming')
     now_showing_view = get_views('now_playing')
@@ -23,19 +23,19 @@ def index():
     if search_view:
         return redirect(url_for('search',view_name=search_view))
     else:
-    return render_template('index.html', title = title, popular = popular_views, upcoming = upcoming_view, now_showing = now_showing_view )
+        return render_template('index.html', title = title, popular = popular_views, upcoming = upcoming_view, now_showing = now_showing_view )
 #highlight
-@main.route('/news/<int:view_id>')
-def views(view_id):
+@main.route('/view/<int:view_id>')
+def view(id):
     '''
     news root page function that returns the index page and its data
     '''
     # message = 'list and preview news articles from various sources.'
-    views = get_movie(id)
-    title = f'{views.title}'
+    views = get_view(id)
+    title = f'{view.title}'
 
-    return render_template('news.html',title = title,views = views)
-@main.route('/search/<movie_name>')
+    return render_template('view.html',title = title,views = views)
+@main.route('/search/<view_name>')
 def search(view_name):
     '''
     View function to display the search results
@@ -62,13 +62,13 @@ def new_review(id):
     return render_template('new_review.html',title = title, review_form=form, view=view)
 
 @main.route('/view/<int:id>')
-def view(id):
+# def view(id):
 
-    '''
-    View view page function that returns the view details page and its data
-    '''
-    view = get_view(id)
-    title = f'{view.title}'
-    reviews = Review.get_reviews(view.id)
+#     '''
+#     View view page function that returns the view details page and its data
+#     '''
+#     view = get_view(id)
+#     # title = f'{view.title}'
+#     reviews = Review.get_reviews(view.id)
 
-    return render_template('news.html',title = title,view = view,reviews = reviews)
+#     return render_template('news.html',title = title,view = view,reviews = reviews)

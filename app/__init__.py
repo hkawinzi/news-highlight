@@ -1,10 +1,6 @@
 from flask import Flask
-from .config import DevConfig
-import bootstrap
-from app import highlight
-from app import error
 from flask_bootstrap import Bootstrap
-from config import config_options
+from . import config_options
 
 bootstrap = Bootstrap()
 

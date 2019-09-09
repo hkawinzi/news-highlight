@@ -1,8 +1,5 @@
-from app import app
 import urllib.request,json
 from .models import View
-
-View = view.View
 
 #getting api key
 api_key = None
@@ -15,7 +12,7 @@ def configure_request(app):
     api_key = app.config['VIEW_API_KEY']
     base_url = app.config['VIEW_API_BASE_URL']
 
-def get_views (category):
+def get_views(category):
     '''
     Function that gets the json response to our url request
     '''
@@ -75,12 +72,12 @@ def get_view(id):
 
         view_object = View(author,title,description,url,urlToImage,publishedAt,content)
 
-    return movie_object
+    return view_object
 
 
 def search_view(view_name):
-    search_view_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,view_name)
-    with urllib.request.urlopen(search_movie_url) as url:
+    search_view_url = 'https://newsapi.org/v2/everything?q=bitcoin&from=2019-08-09&sortBy=publishedAt&apiKey={}'.format(api_key,view_name)
+    with urllib.request.urlopen(search_view_url) as url:
         search_view_data = url.read()
         search_view_response = json.loads(search_view_data)
 
@@ -91,6 +88,6 @@ def search_view(view_name):
             search_view_results = process_results(search_view_list)
 
 
-    return search_movie_results
+    return search_view_results
 
     
