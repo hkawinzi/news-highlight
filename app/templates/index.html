@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,21 @@
         {% endif %}
     </head>
     <body>
-
+            <!-- Popular news -->
+            <h3> Popular News</h3>
+            <ul>
+                {{ macro.displayViewList(popular)}}
+           </ul>
+   
+           <!-- Upcoming news  -->
+           <h3> Upcoming News </h3>
+            <ul>
+                {{ macro.displayViewList(Upcoming)}}
+           </ul>
+           <!-- Now showing movie -->
+           <h3>Now Showing</h3>
+            <ul>
+                {{ macro.displayViewList(now_showing)}}
+           </ul>
     </body>
 </html>

@@ -1,0 +1,7 @@
+{% macro displayViewList(view_list) %}
+
+    {% for view in view_list %}
+        <li>{{ view.title}}</li>
+    {% endfor %}
+
+{% endmacro %}
