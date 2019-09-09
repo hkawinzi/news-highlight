@@ -1,14 +1,19 @@
 from app import app
 import urllib.request,json
-from .models import view
+from .models import View
 
 View = view.View
 
 #getting api key
-api_key = app.config['VIEW_API_KEY']
+api_key = None
 
 #getting the view base url
-base_url = app.config["VIEW_API_BASE_URL"]
+base_url = None
+
+def configure_request(app):
+    global api_key,base_url
+    api_key = app.config['VIEW_API_KEY']
+    base_url = app.config['VIEW_API_BASE_URL']
 
 def get_views (category):
     '''

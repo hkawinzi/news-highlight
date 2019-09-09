@@ -1,13 +1,12 @@
 from flask import render_template,request,redirect,url_for
-from app import app
-from .request import get_views
+from . import main 
 from .request import get_views,get_view,search_view
-from .models import review
+from .models import Review
 from .forms import ReviewForm
 
 Review = review.Review
 
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -26,7 +25,7 @@ def index():
     else:
     return render_template('index.html', title = title, popular = popular_views, upcoming = upcoming_view, now_showing = now_showing_view )
 #highlight
-@app.route('/news/<int:view_id>')
+@main.route('/news/<int:view_id>')
 def views(view_id):
     '''
     news root page function that returns the index page and its data
@@ -36,7 +35,7 @@ def views(view_id):
     title = f'{views.title}'
 
     return render_template('news.html',title = title,views = views)
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(view_name):
     '''
     View function to display the search results
@@ -47,7 +46,7 @@ def search(view_name):
     title = f'search results for {view_name}'
     return render_template('search.html',views = searched_views)
 
-@app.route('/view/review/new/<int:id>', methods = ['GET','POST'])
+@main.route('/view/review/new/<int:id>', methods = ['GET','POST'])
 def new_review(id):
     form = ReviewForm()
     view = get_view(id)
@@ -62,7 +61,7 @@ def new_review(id):
     title = f'{view.title} review'
     return render_template('new_review.html',title = title, review_form=form, view=view)
 
-@app.route('/view/<int:id>')
+@main.route('/view/<int:id>')
 def view(id):
 
     '''
