@@ -37,5 +37,15 @@
                 {{ macro.displayViewList(now_showing)}}
            </ul>
            {% endblock%}
+
+           {% block content %}
+
+        <div class="container">
+            <form>
+                <input type="text" name="news_query" placeholder="Search for view" class="form-control">
+                <input type="submit"  value="Submit" class="btn btn-default">
+            </form>
+        
+        </div>
     </body>
 </html>

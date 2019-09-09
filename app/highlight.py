@@ -36,4 +36,4 @@ def search(view_name):
     view_name_format = "+".join(view_name_list)
     searched_views = search_view(view_name_format)
     title = f'search results for {view_name}'
-    return render_template('search.html',views = searched_movies)
+    return render_template('search.html',views = searched_views)
