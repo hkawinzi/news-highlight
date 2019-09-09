@@ -5,14 +5,15 @@
 
     <!-- Poster background -->
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{movie.poster}}) no-repeat center center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{view.poster}}) no-repeat center center">
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
-            <h3>{{ movie.title }}</h3>
+            <h3>{{ news.title }}</h3>
 
             <p class="overview"> {{ view.overview }}</p>
             <p class="ratings"> <b> {{ view.vote_average }}</b> - <i>{{ view.vote_count}} votes </i> </p>
+            <a class="ratings" href="/view/review/new/{{view.id}}"> Write a new review</a>
 
 
         </div>
