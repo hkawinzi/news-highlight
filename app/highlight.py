@@ -61,3 +61,15 @@ def new_review(id):
 
     title = f'{view.title} review'
     return render_template('new_review.html',title = title, review_form=form, view=view)
+
+@app.route('/view/<int:id>')
+def view(id):
+
+    '''
+    View view page function that returns the view details page and its data
+    '''
+    view = get_view(id)
+    title = f'{movie.title}'
+    reviews = Review.get_reviews(view.id)
+
+    return render_template('news.html',title = title,view = view,reviews = reviews)
