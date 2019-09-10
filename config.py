@@ -1,9 +1,10 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 class Config:
     '''
     General configuration parent class
     '''
-    VIEW_API_BASE_URL ='https://newsapi.org/v2/everything?q=bitcoin&from=2019-08-09&sortBy=publishedAt&apiKey={}'
     VIEW_API_KEY = os.environ.get('VIEW_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
 

@@ -1,23 +1,54 @@
-{% macro displayViewList(view_list) %}
+{% macro displaySources(sources) %}
+<style>
+    
+    .jumbotron {
+        height: 100px;
+        text-align: center;
+        padding-top: 20px;
 
-    {% for view in view_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 view-card">
-            <img src="{{ view.poster }}" alt="{{ view.title }} poster" class="img-responsive">
-            <li class="text-center">
-                <a href="/view/{{view.id}}">
-                    {{ view.title|truncate(10)}}</a>
-            </li>
+    }
+    h1 {
+        color: rgba(0, 0, 0, 0.418);
+        font-family: 'Chilanka', cursive;
+    }
+    h3 {
+        font-family: 'Lobster Two', cursive;
+        text-decoration: underline;
+        text-size-adjust: 30px;
+
+    }
+    .card {
+        background-image: linear-gradient(to right bottom, #4e585c, #627273, #7a8c87, #97a69a, #bac0ad);
+
+    }
+</style>
+
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet">
+    <div class="jumbotron" height="200px">
+        <h3><strong>NEWS HIGHLIGHTS</strong> </h3>
+    </div>
+    </div>
+
+    <br>
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <div class="card-columns">
+        {% for source in sources %}
+        <div class="card">
+            <div class="card-header">
+                <a href="{{source.url}}">
+                    <h1 class="text-center">{{source.name}}</h1>
+                </a>
+            </div>
+            <div class="card-body">
+                <p>{{source.description}}</p>
+            </div>
+            <div class="card-footer">
+                <p class="text-center">Category : {{source.category}}</p>
+            </div>
         </div>
 
-    {% endfor %}
-
-<!-- Displaying reviews macro -->
-{% macro displayReviews(review_list) %}
-    {% for review in review_list %}
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-        <h2> {{ review.title}} </h2>
-        <p> {{ review.review | truncate(30) }}</p>
+        {% endfor %}
     </div>
-    {% endfor %}
-
-{% endmacro %}
+    {% endmacro %}
+</body>
